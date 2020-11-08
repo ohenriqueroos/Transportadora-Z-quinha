@@ -7,12 +7,14 @@
     <div class="row justify-content-center">
       <div class="pt-5 col-lg-8">
         <div class="card-page">
-          <h5><b>Nome do Destinatário:</b></h5>
-          <p class="mb-4">Código de Rastreamento:</p>
-          <p class="mb-4">{{ $val['rastreamento'] }}</p>
-          <p class="mb-4">{{ $val['nomedestinatario'] }}</p>
+          <h5><b>Entrega:</b></h5>
           <hr>
-          <a href="pedido/{{$val['nomedestinatario']}}" style="color: rgba(237, 32, 36)">
+          <p class="mb-2"><b>Código de Rastreamento:</b></p>
+          <p class="mb-2">{{ $val['rastreamento'] }}</p>
+          <p class="mb-2"><b>Nome do Destinatário:</b></p>
+          <p class="mb-2">{{ $val['nomedestinatario'] }}</p>
+          <hr>
+          <a href="pedido/{{$val['rastreamento']}}" style="color: rgba(237, 32, 36)">
           Veja mais detalhes!
           </a>
         </div>
@@ -21,24 +23,5 @@
 </div>
 @endforeach
 
-<!-- @foreach ($pedido as $val)
-<div class="page-section">
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="pt-5 col-lg-8">
-        <div class="card-page">
-          <h5>Dados da entrega:</h5>
-          <hr>
-          <h6><b>Nome do Destinatário:</b></h6>
-          <p class="mb-4">{{ $val['nomedestinatario'] }}</p>
-          <h6><b>Telefone do Destinatário:</b></h6>
-          <p class="mb-4">{{ $val['telefonedestinatario'] }}</p>
-          <h6><b>Endereço do Destinatário:</b></h6>
-          <p class="mb-4">{{ $val['enderecodestinatario'] }}</p>
-        </div>
-    </div>
-  </div>
-</div>
-@endforeach -->
 
 @endsection

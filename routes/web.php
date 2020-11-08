@@ -39,16 +39,18 @@ Route::get('/fazerpedido', function () {
     return view('fazerpedido');
 });
 
-Route::get('/acompanharentrega', function () {
-    return view('acompanharentrega');
+
+Route::get('/pedido', function () {
+    return view('pedido');
 });
+
 
 Route::post('chamaFuncao', [HomeController::class, 'funcao']);
 Route::post('novoPedido', [HomeController::class, 'novopedido']);
+Route::get('acompanharentrega', [HomeController::class, 'listaPedidos']);
+Route::get('pedido/{id}', [HomeController::class, 'loadPedido']);
 
-// Route::post('listaPedidos', [HomeController::class, 'listapedidos']);
-// Route::get('novoPedido', [HomeController::class, 'pedido']);
-// Route::get('acompanharentrega', [HomeController::class, 'listaPedidos']);
+
 Route::get('/', [HomeController::class, 'loadHome']);
 
 

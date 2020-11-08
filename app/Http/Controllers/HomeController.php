@@ -13,15 +13,11 @@ use App\Models\pedido;
 class HomeController extends Controller
 {
     public function funcao (Request $req) {
-        $req['nomecompleto'] = "Eriquisom";
         $cliente = new cliente();
         $cliente->fill($req->all());
         $cliente->save();
         return $cliente;    
     }
-
-
-
 
     public function novopedido (Request $req) {
         $req['rastreamento'] = Str::uuid();
@@ -29,25 +25,19 @@ class HomeController extends Controller
         $pedido = new pedido();
         $pedido->fill($req->all());
         $pedido->save();
-        return $pedido;
+        return redirect('acompanharentrega');
     }
 
-    // public function pedido (Request $req) {
-    //     $pedido = new pedido();
-    //     $pedido->fill($req->all());
-    //     $pedido->save();
-    //     return $pedido;    
-    // }
 
-    // public function listapedidos (Request $req) {
-    //     $pedido = pedido::get();
-    //     return view('pedido', compact('pedido'));
-    // }
+   public function listaPedidos (Request $req) {
+       $pedido = pedido::get();
+       return view('acompanharentrega', compact('pedido'));
+   }
 
-    // public function loadPedido (Request $req) {
-    //     $pedido = pedido::where('nomedestinatario', $req->id)->first();
-    //     return view('pedido', compact('pedido'));
-    // }
+   public function loadPedido (Request $req) {
+        $pedido = pedido::where('rastreamento', $req->id)->first();
+        return view('pedido', compact('pedido'));
+    }
 
     public function loadHome (Request $req) {
         $cliente = cliente::get();

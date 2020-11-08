@@ -42,16 +42,16 @@
           <a class="nav-link" href="/">Início</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="fazerpedido">Fazer Pedido</a>
+          <a class="nav-link" href="/fazerpedido">Fazer Pedido</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="acompanharentrega">Acompanhar Entrega</a>
+          <a class="nav-link" href="/acompanharentrega">Acompanhar Entrega</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="sobre">Sobre</a>
+          <a class="nav-link" href="/sobre">Sobre</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="contato">Contato</a>
+          <a class="nav-link" href="/contato">Contato</a>
         </li>
       </ul>
       <div class="ml-auto my-2 my-lg-0">

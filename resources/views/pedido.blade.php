@@ -1,6 +1,7 @@
 @extends('layout')
 @section('pagina')
 
+
 <div class="page-section">
   <div class="container">
     <div class="row justify-content-center">
@@ -10,6 +11,8 @@
           <hr>
           <p class="mb-4"><b>Nome do destinatário:</b></p>
           <p class="mb-4">{{$pedido['nomedestinatario']}}</p>
+          <p class="mb-4"><b>Código de Rastreamento:</b></p>
+          <p class="mb-4">{{$pedido['rastreamento']}}</p>
           <p class="mb-4"><b>Telefone do destinatário:</b></p>
           <p class="mb-4">{{$pedido['telefonedestinatario']}}</p>
           <p class="mb-4"><b>Endereço do destinatário:</b></p>
@@ -18,10 +21,6 @@
     </div>
   </div>
 </div>
-
-
-
-
 
 
 @endsection
