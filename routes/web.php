@@ -39,6 +39,10 @@ Route::get('/fazerpedido', function () {
     return view('fazerpedido');
 });
 
+Route::get('/cliente', function () {
+    return view('cliente');
+});
+
 
 Route::get('/pedido', function () {
     return view('pedido');
@@ -49,7 +53,10 @@ Route::post('chamaFuncao', [HomeController::class, 'funcao']);
 Route::post('novoPedido', [HomeController::class, 'novopedido']);
 Route::get('acompanharentrega', [HomeController::class, 'listaPedidos']);
 Route::get('pedido/{id}', [HomeController::class, 'loadPedido']);
-
+Route::post('pedido/{id}', [HomeController::class, 'updatePedido']);
+Route::get('cliente/{id}', [HomeController::class, 'loadCliente']);
+Route::post('cliente/{id}', [HomeController::class, 'updateCliente']);
+Route::get('cliente', [HomeController::class, 'listaClientes']);
 
 Route::get('/', [HomeController::class, 'loadHome']);
 

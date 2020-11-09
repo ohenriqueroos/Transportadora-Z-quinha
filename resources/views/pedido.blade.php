@@ -4,23 +4,36 @@
 
 <div class="page-section">
   <div class="container">
-    <div class="row justify-content-center">
+    <div class="row mb-5 justify-content-center">
       <div class="pt-5 col-lg-8">
         <div class="card-page">
           <h5><b>Dados do pedido:</b></h5>
           <hr>
-          <p class="mb-4"><b>Nome do destinatário:</b></p>
-          <p class="mb-4">{{$pedido['nomedestinatario']}}</p>
-          <p class="mb-4"><b>Código de Rastreamento:</b></p>
-          <p class="mb-4">{{$pedido['rastreamento']}}</p>
-          <p class="mb-4"><b>Telefone do destinatário:</b></p>
-          <p class="mb-4">{{$pedido['telefonedestinatario']}}</p>
-          <p class="mb-4"><b>Endereço do destinatário:</b></p>
-          <p class="mb-4">{{$pedido['enderecodestinatario']}}</p>
+          <form method="POST" action="updatePedido">
+          @csrf
+          <p class="mb-2"><b>Nome do destinatário:</b></p>
+          <p class="mb-2">{{$pedido['nomedestinatario']}}</p>
+          <input type="hidden" name="id_pedido" value="{{ $pedido['id_pedido'] }}">
+          <input class="form-control" type="text" name="nomedestinatario" value="{{$pedido['nomedestinatario']}}">
+          <p class="mb-2"><b>Código de Rastreamento:</b></p>
+          <p class="mb-2">{{$pedido['rastreamento']}}</p>
+          <p class="mb-2"><b>Telefone do destinatário:</b></p>
+          <p class="mb-2">{{$pedido['telefonedestinatario']}}</p>
+          <input type="hidden" name="id_pedido" value="{{ $pedido['id_pedido'] }}">
+          <input class="form-control" type="text" name="telefonedestinatario" value="{{$pedido['telefonedestinatario']}}">
+          <p class="mb-2"><b>Endereço do destinatário:</b></p>
+          <p class="mb-2">{{$pedido['enderecodestinatario']}}</p>
+          <input type="hidden" name="id_pedido" value="{{ $pedido['id_pedido'] }}">
+          <input class="form-control" type="text" name="enderecodestinatario" value="{{$pedido['enderecodestinatario']}}"><br>
+          <div class="form-group mt-4 wow fadeInUp">
+          <button type="submit" class="btn btn-primary">Alterar</button>
+          </div>
+          </form>
         </div>
     </div>
   </div>
 </div>
+
 
 
 @endsection

@@ -4,7 +4,7 @@
 @foreach ($pedido as $val)
 <div class="page-section">
   <div class="container">
-    <div class="row justify-content-center">
+    <div class="row mb-5 justify-content-center">
       <div class="pt-5 col-lg-8">
         <div class="card-page">
           <h5><b>Entrega:</b></h5>
