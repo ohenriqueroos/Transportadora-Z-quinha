@@ -41,11 +41,11 @@ class HomeController extends Controller
 
     public function updatePedido (Request $req) {
         $pedido = pedido::find($req['id_pedido']);
-        $pedido['nomedestinatario'] = $req ['nomedestinatario'];
-        $pedido['telefonedestinatario'] = $req ['telefonedestinatario'];
-        $pedido['enderecodestinatario'] = $req ['enderecodestinatario'];
+        $pedido['nomedestinatario'] = $req['nomedestinatario'];
+        $pedido['telefonedestinatario'] = $req['telefonedestinatario'];
+        $pedido['enderecodestinatario'] = $req['enderecodestinatario'];
         $pedido->save();
-        return redirect('acompanharentrega');
+        return redirect('pedido/' . $pedido['rastreamento']);
     }
 
     public function listaClientes (Request $req) {
