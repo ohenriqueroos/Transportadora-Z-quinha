@@ -48,29 +48,9 @@ class HomeController extends Controller
         return redirect('pedido/' . $pedido['rastreamento']);
     }
 
-    public function listaClientes (Request $req) {
-        $cliente = cliente::get();
-        return view('cliente', compact('cliente'));
+    public function checkLogin (Request $req) {
+        
     }
-
-    public function loadCliente (Request $req) {
-        $cliente = cliente::where('id_cliente', $req->id)->first();
-        return view('dadoscliente', compact('cliente'));
-    }
-
-    public function updateCliente (Request $req) {
-        $cliente = cliente::find($req['id_cliente']);
-        $cliente['nomecompleto'] = $req ['nomecompleto'];
-        $cliente['email'] = $req ['email'];
-        $cliente['telefone'] = $req ['telefone'];
-        $cliente['endereco'] = $req ['endereco'];
-        $cliente['cpf'] = $req ['cpf'];
-        $cliente['datanascimento'] = $req ['datanascimento'];
-        $cliente['senha'] = $req ['senha'];
-        $cliente->save();
-        return redirect('cliente');
-    }
-
 
     public function loadHome (Request $req) {
         $cliente = cliente::get();

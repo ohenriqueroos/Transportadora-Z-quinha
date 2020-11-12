@@ -73,10 +73,10 @@
         <h5 class="mb-3">Páginas</h5>
         <ul class="menu-link">
           <li><a href="/" class="">Início</a></li>
-          <li><a href="#" class="">Fazer Pedido</a></li>
-          <li><a href="#" class="">Acompanhar Pedido</a></li>
-          <li><a href="sobre" class="">Sobre</a></li>
-          <li><a href="contato" class="">Contato</a></li>
+          <li><a href="/fazerpedido" class="">Fazer Pedido</a></li>
+          <li><a href="/acompanharentrega" class="">Acompanhar Pedido</a></li>
+          <li><a href="/sobre" class="">Sobre</a></li>
+          <li><a href="/contato" class="">Contato</a></li>
         </ul>
       </div>
 
