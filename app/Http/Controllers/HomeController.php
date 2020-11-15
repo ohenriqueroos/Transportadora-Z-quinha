@@ -10,11 +10,14 @@ use App\Models\cliente;
 
 use App\Models\pedido;
 
+use Illuminate\Support\Facades\Hash;
+
 class HomeController extends Controller
 {
     public function funcao (Request $req) {
         $cliente = new cliente();
         $cliente->fill($req->all());
+        $cliente['senha'] = Hash::make($cliente->newPassword);
         $cliente->save();
         return redirect('logincadastro');    
     }
@@ -49,7 +52,11 @@ class HomeController extends Controller
     }
 
     public function checkLogin (Request $req) {
-        
+        $cliente = cliente::where('email', $req['email'])->first();
+        if ($cliente['senha'] == $req['senha']){
+            return redirect('acompanharentrega');
+        }
+        return redirect('logincadastro');
     }
 
     public function loadHome (Request $req) {

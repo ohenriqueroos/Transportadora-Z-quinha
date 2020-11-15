@@ -54,7 +54,7 @@ Route::post('novoPedido', [HomeController::class, 'novopedido']);
 Route::get('acompanharentrega', [HomeController::class, 'listaPedidos']);
 Route::get('pedido/{id}', [HomeController::class, 'loadPedido']);
 Route::post('pedido/{id}', [HomeController::class, 'updatePedido']);
-
+Route::post('checkLogin', [HomeController::class, 'checkLogin']);
 
 Route::get('/', [HomeController::class, 'loadHome']);
 

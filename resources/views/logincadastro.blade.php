@@ -9,7 +9,7 @@
           <div class="col-12 col-md-5  py-3">
             <h1 class="wow fadeInUp">Login</h1>
 
-            <form method="POST" action="#" class="mt-5">
+            <form method="POST" action="checkLogin" class="mt-5">
             @csrf    
               <div class="form-group wow fadeInUp">
                 <label for="name" class="fw-medium fg-grey">E-mail</label>
