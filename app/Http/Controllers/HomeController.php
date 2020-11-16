@@ -17,7 +17,7 @@ class HomeController extends Controller
     public function funcao (Request $req) {
         $cliente = new cliente();
         $cliente->fill($req->all());
-        $cliente['senha'] = Hash::make($cliente->newPassword);
+        $cliente['senha'] = Hash::make($cliente['senha']);
         $cliente->save();
         return redirect('logincadastro');    
     }
@@ -53,10 +53,19 @@ class HomeController extends Controller
 
     public function checkLogin (Request $req) {
         $cliente = cliente::where('email', $req['email'])->first();
-        if ($cliente['senha'] == $req['senha']){
+        // return $req['senha'];
+        if(Hash::check($req['senha'], $cliente['senha'])){
+            $req->session()->put('cliente', $cliente);
             return redirect('acompanharentrega');
         }
         return redirect('logincadastro');
+        // if ($cliente['senha'] == $req['senha']){
+        //     return redirect('acompanharentrega');
+    }
+
+    public function logout (Request $req) {
+        $req->session()->flush();
+        return redirect('/');
     }
 
     public function loadHome (Request $req) {

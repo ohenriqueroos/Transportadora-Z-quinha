@@ -16,6 +16,10 @@ class checkLogin
      */
     public function handle(Request $request, Closure $next)
     {
-        return $next($request);
+        if ($request->session()->has('cliente')) {
+            return $next($request);
+        } else {
+            return redirect('logincadastro');
+        }
     }
 }

@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
 
+use App\Http\Middleware\checkLogin;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,30 +37,21 @@ Route::get('/cadastro', function () {
     return view('cadastro');
 });
 
-Route::get('/fazerpedido', function () {
-    return view('fazerpedido');
-});
-
-Route::get('/cliente', function () {
-    return view('cliente');
-});
-
-
-Route::get('/pedido', function () {
-    return view('pedido');
-});
-
-
 Route::post('chamaFuncao', [HomeController::class, 'funcao']);
 Route::post('novoPedido', [HomeController::class, 'novopedido']);
-Route::get('acompanharentrega', [HomeController::class, 'listaPedidos']);
 Route::get('pedido/{id}', [HomeController::class, 'loadPedido']);
 Route::post('pedido/{id}', [HomeController::class, 'updatePedido']);
 Route::post('checkLogin', [HomeController::class, 'checkLogin']);
+Route::get('logout', [HomeController::class, 'logout']);
 
 Route::get('/', [HomeController::class, 'loadHome']);
 
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::middleware([checkLogin::class])->group(function () {
+    Route::get('/fazerpedido', function () {
+        return view('fazerpedido');
+    });
+    Route::get('/pedido', function () {
+        return view('pedido');
+    });
+    Route::get('acompanharentrega', [HomeController::class, 'listaPedidos']);
+});
