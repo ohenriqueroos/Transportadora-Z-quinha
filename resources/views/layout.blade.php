@@ -54,9 +54,16 @@
           <a class="nav-link" href="/contato">Contato</a>
         </li>
       </ul>
+      @if (Session::has('cliente'))
+       {{ Session::get('cliente')->nomecompleto }}
+      @endif
+      <div class="ml-auto my-2 my-lg-0">
+        <a href="logout" button class="btn btn-dark rounded-pill">Sair</button></a>
+      </div>
       <div class="ml-auto my-2 my-lg-0">
         <a href="logincadastro" button class="btn btn-dark rounded-pill">Acessar</button></a>
       </div>
+      
     </div>
   </div>
 </nav>

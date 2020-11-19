@@ -63,6 +63,8 @@ class HomeController extends Controller
         //     return redirect('acompanharentrega');
     }
 
+
+
     public function logout (Request $req) {
         $req->session()->flush();
         return redirect('/');
