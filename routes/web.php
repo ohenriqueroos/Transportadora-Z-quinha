@@ -6,6 +6,8 @@ use App\Http\Controllers\HomeController;
 
 use App\Http\Middleware\checkLogin;
 
+use App\Http\Middleware\blockLogin;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,9 +35,9 @@ Route::get('/logincadastro', function () {
     return view('logincadastro');
 });
 
-Route::get('/cadastro', function () {
-    return view('cadastro');
-});
+
+
+
 
 Route::post('chamaFuncao', [HomeController::class, 'funcao']);
 Route::post('novoPedido', [HomeController::class, 'novopedido']);
@@ -54,4 +56,17 @@ Route::middleware([checkLogin::class])->group(function () {
         return view('pedido');
     });
     Route::get('acompanharentrega', [HomeController::class, 'listaPedidos']);
+    Route::post('updateCliente', [HomeController::class, 'updateCliente']);
+    Route::get('/perfil', function () {
+        return view('perfil');
+    });
+});
+
+Route::middleware([blockLogin::class])->group(function () {
+    Route::get('/logincadastro', function () {
+        return view('logincadastro');
+    });
+    Route::get('/cadastro', function () {
+        return view('cadastro');
+    });
 });

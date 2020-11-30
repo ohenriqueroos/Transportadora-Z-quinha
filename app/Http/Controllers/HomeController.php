@@ -27,13 +27,14 @@ class HomeController extends Controller
         $req['id_cliente'] = 1;
         $pedido = new pedido();
         $pedido->fill($req->all());
+        $pedido['id_cliente'] = $req->session()->get('cliente')->id_cliente;
         $pedido->save();
         return redirect('acompanharentrega');
     }
 
 
    public function listaPedidos (Request $req) {
-       $pedido = pedido::get();
+       $pedido = pedido::where('id_cliente', $req->session()->get('cliente')->id_cliente)->get();
        return view('acompanharentrega', compact('pedido'));
    }
 
@@ -49,6 +50,14 @@ class HomeController extends Controller
         $pedido['enderecodestinatario'] = $req['enderecodestinatario'];
         $pedido->save();
         return redirect('pedido/' . $pedido['rastreamento']);
+    }
+
+    public function updateCliente (Request $req) {
+        $cliente = cliente::find($req['id_cliente']);
+        $cliente['nomecompleto'] = $req['nomecompleto'];
+        $cliente['email'] = $req['email'];
+        $cliente->save();
+        return redirect('perfil');
     }
 
     public function checkLogin (Request $req) {
