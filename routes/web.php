@@ -35,6 +35,9 @@ Route::get('/logincadastro', function () {
     return view('logincadastro');
 });
 
+Route::get('/condicionais', function (){
+    return view('condicionais');
+});
 
 
 
@@ -42,9 +45,11 @@ Route::get('/logincadastro', function () {
 Route::post('chamaFuncao', [HomeController::class, 'funcao']);
 Route::post('novoPedido', [HomeController::class, 'novopedido']);
 Route::get('pedido/{id}', [HomeController::class, 'loadPedido']);
-Route::post('pedido/{id}', [HomeController::class, 'updatePedido']);
+Route::post('pedido', [HomeController::class, 'updatePedido']);
 Route::post('checkLogin', [HomeController::class, 'checkLogin']);
 Route::get('logout', [HomeController::class, 'logout']);
+Route::get('/delete/{id}', [HomeController::class, 'delete']);
+
 
 Route::get('/', [HomeController::class, 'loadHome']);
 
@@ -56,10 +61,8 @@ Route::middleware([checkLogin::class])->group(function () {
         return view('pedido');
     });
     Route::get('acompanharentrega', [HomeController::class, 'listaPedidos']);
-    Route::post('updateCliente', [HomeController::class, 'updateCliente']);
-    Route::get('/perfil', function () {
-        return view('perfil');
-    });
+    Route::get('/perfil', [HomeController::class, 'loadCliente']);
+    Route::post('perfil', [HomeController::class, 'updateCliente']);
 });
 
 Route::middleware([blockLogin::class])->group(function () {

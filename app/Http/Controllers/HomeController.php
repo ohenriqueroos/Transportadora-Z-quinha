@@ -52,11 +52,25 @@ class HomeController extends Controller
         return redirect('pedido/' . $pedido['rastreamento']);
     }
 
+    public function delete ($id) {
+    $pedido = pedido::find($id)->delete();
+    return redirect('acompanharentrega');
+    }
+
+    public function loadCliente (Request $req) {
+        $cliente = cliente::where('id_cliente', $req->session()->get('cliente')->id_cliente)->first();
+        return view('perfil', compact('cliente'));
+    }
+
     public function updateCliente (Request $req) {
         $cliente = cliente::find($req['id_cliente']);
         $cliente['nomecompleto'] = $req['nomecompleto'];
-        $cliente['email'] = $req['email'];
+        $cliente['telefone'] = $req['telefone'];
+        $cliente['endereco'] = $req['endereco'];
+        $cliente['cpf'] = $req['cpf'];
+        $cliente['datanascimento'] = $req['datanascimento'];
         $cliente->save();
+        $req->session()->put('cliente', $cliente);
         return redirect('perfil');
     }
 
@@ -71,8 +85,6 @@ class HomeController extends Controller
         // if ($cliente['senha'] == $req['senha']){
         //     return redirect('acompanharentrega');
     }
-
-
 
     public function logout (Request $req) {
         $req->session()->flush();

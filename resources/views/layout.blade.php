@@ -64,10 +64,11 @@
         </li>
         @endif
       </ul>
-      <div class="ml-auto my-2 my-lg-0">
-        <a href="logincadastro" button class="btn btn-dark rounded-pill">Acessar</button></a>
-      </div>
-      
+        @if (!Session::has('cliente'))
+          <div class="ml-auto my-2 my-lg-0">
+            <a href="logincadastro" button class="btn btn-dark rounded-pill">Acessar</button></a>
+          </div>
+        @endif
     </div>
   </div>
 </nav>

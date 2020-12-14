@@ -9,7 +9,7 @@
         <div class="card-page">
           <h5><b>Dados do pedido:</b></h5>
           <hr>
-          <form method="POST" action="updatePedido">
+          <form method="POST" action="/pedido">
           @csrf
           <p class="mb-2"><b>Nome do destinatário:</b></p>
           <input type="hidden" name="id_pedido" value="{{ $pedido['id_pedido'] }}">
@@ -26,6 +26,9 @@
           <button type="submit" class="btn btn-primary">Alterar</button>
           </div>
           </form>
+          <div class="form-group mt-4 wow fadeInUp">
+          <a href="/delete/{{ $pedido['id_pedido'] }}" class="btn btn-primary">Deletar</a>
+          </div>
         </div>
     </div>
   </div>

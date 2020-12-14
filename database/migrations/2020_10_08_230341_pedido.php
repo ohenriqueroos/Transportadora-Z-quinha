@@ -22,6 +22,7 @@ class Pedido extends Migration
             $table->string('telefonedestinatario');
             $table->string('enderecodestinatario');
             $table->string('rastreamento');
+            $table->softDeletes();
         });
     }
 
