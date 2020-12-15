@@ -25,6 +25,7 @@
           <div class="form-group wow fadeInUp">
             <label for="name" class="fw-medium fg-grey">Endereço</label>
             <input type="text" class="form-control" name="endereco">
+            <p>Ex.: Avenida das Batatas, 321 Bairro: Centro - Timbó-SC</p>
           </div>
           <div class="form-group wow fadeInUp">
             <label for="name" class="fw-medium fg-grey">CPF</label>

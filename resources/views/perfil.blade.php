@@ -21,6 +21,7 @@
           <p class="mb-2"><b>Endereço:</b></p>
           <input type="hidden" name="id_cliente" value="{{ $cliente['id_cliente'] }}">
           <input class="form-control" type="text" name="endereco" value="{{ $cliente['endereco'] }}">
+          <p>Ex.: Avenida das Batatas, 321 Bairro: Centro - Timbó-SC</p>
           <p class="mb-2"><b>CPF:</b></p>
           <input type="hidden" name="id_cliente" value="{{ $cliente['id_cliente'] }}">
           <input class="form-control" type="text" name="cpf" value="{{ $cliente['cpf'] }}">

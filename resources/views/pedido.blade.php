@@ -22,13 +22,16 @@
           <p class="mb-2"><b>Endereço do destinatário:</b></p>
           <input type="hidden" name="id_pedido" value="{{ $pedido['id_pedido'] }}">
           <input class="form-control" type="text" name="enderecodestinatario" value="{{$pedido['enderecodestinatario']}}"><br>
-          <div class="form-group mt-4 wow fadeInUp">
-          <button type="submit" class="btn btn-primary">Alterar</button>
-          </div>
-          </form>
-          <div class="form-group mt-4 wow fadeInUp">
-          <a href="/delete/{{ $pedido['id_pedido'] }}" class="btn btn-primary">Deletar</a>
-          </div>
+            <p>Ex.: Avenida das Batatas, 321 Bairro: Centro - Timbó-SC</p>
+          <div class="container">
+            <div class="row justify-content-start">
+              <div class="col-2">
+                <button type="submit" class="btn btn-primary">Alterar</button>
+              </div>
+              <div class="col-2">
+                <a href="/delete/{{ $pedido['id_pedido'] }}" class="btn btn-primary">Deletar</a>
+              </div>
+            </div>  
         </div>
     </div>
   </div>
