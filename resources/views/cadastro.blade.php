@@ -1,7 +1,7 @@
 @extends('layout')
 @section('pagina')
 
-<div class="page-hero-section bg-image hero-home-1" style="background-color: white; height: 120vh;">
+<div class="page-hero-section bg-image hero-home-1" style="background-color: white; height: 160vh;">
   <div class="hero-caption pt-5">
     <div class="container h-100">
       <div class="row pt-5 align-items-center h-100">
