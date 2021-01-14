@@ -69,6 +69,9 @@ class HomeController extends Controller
         $cliente['endereco'] = $req['endereco'];
         $cliente['cpf'] = $req['cpf'];
         $cliente['datanascimento'] = $req['datanascimento'];
+        if (!is_null($req['novasenha'])) {
+            $cliente['senha'] = Hash::make($req['novasenha']);
+        }
         $cliente->save();
         $req->session()->put('cliente', $cliente);
         return redirect('perfil');
