@@ -1,8 +1,10 @@
 @extends('layout')
 @section('pagina')
 
-@php for($i = 0; $i < count($pedido);  $i++){ @endphp
-
+@php
+$i = 0;
+@endphp
+@while ($i < count($pedido))
   <div class="page-section">
     <div class="container">
       <div class="row mb-5 justify-content-center">
@@ -22,8 +24,10 @@
       </div>
     </div>
   </div> 
-
-@php } @endphp
+@php 
+  $i++;
+@endphp 
+@endwhile
 
 @if($i == 0)
 <div class="page-section bg-light fg-dark">
