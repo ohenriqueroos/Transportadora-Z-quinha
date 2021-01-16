@@ -30,10 +30,15 @@ $i = 0;
 @endwhile
 
 @if($i == 0)
-<div class="page-section bg-light fg-dark">
-  <div class="container">
-    <div class="mb-5">
-      <h5 class="text-center">Você não possui pedidos cadastrados!</h5>
+<div class="page-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="pt-5 mb-5 col-lg-8">
+          <div class="card-page">
+            <h5><b>Você não possui pedidos cadastrados!</b></h5>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
