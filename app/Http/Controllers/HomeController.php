@@ -43,6 +43,16 @@ class HomeController extends Controller
         return view('pedido', compact('pedido'));
     }
 
+    public function listaPedidosA (Request $req) {
+        $pedido = pedido::where('id_cliente', $req->session()->get('cliente')->id_cliente)->get();
+        return view('admin', compact('pedido'));
+        }
+    
+    public function loadPedidoA (Request $req) {
+        $pedido = pedido::where('rastreamento', $req->id)->first();
+        return view('adminpedido', compact('pedido'));
+    }
+
     public function updatePedido (Request $req) {
         $pedido = pedido::find($req['id_pedido']);
         $pedido['nomedestinatario'] = $req['nomedestinatario'];
