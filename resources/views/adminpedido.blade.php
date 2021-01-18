@@ -3,8 +3,8 @@
 
 <div class="page-section">
   <div class="container">
-    <div class="row mb-5 justify-content-center">
-      <div class="pt-5 col-lg-8">
+    <div class="row ml-5 justify-content-center">
+      <div class="col-xl-">
         <div class="card-page">
           <h5><b>Dados do pedido:</b></h5>
           <hr>
@@ -23,4 +23,4 @@
   </div>
 </div>
 
-
+@endsection

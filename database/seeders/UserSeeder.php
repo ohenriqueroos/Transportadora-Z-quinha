@@ -16,7 +16,7 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        cliente::create([
+        users::create([
             'nomecompleto' => 'João Batata', 
             'email' => 'Joao@batatacompany.com.br',
             'senha' => Hash::make('Batata12'),

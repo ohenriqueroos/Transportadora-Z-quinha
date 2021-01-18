@@ -15,14 +15,14 @@ class Pedido extends Migration
     {
         Schema::create('pedido', function (Blueprint $table) {
             $table->bigIncrements('id_pedido');
-            $table->unsignedBigInteger('id_cliente');
-            $table->foreign('id_cliente')->references('id_cliente')->on('cliente');
-            $table->timestamps();
             $table->string('nomedestinatario');
             $table->string('telefonedestinatario');
             $table->string('enderecodestinatario');
             $table->string('rastreamento');
+            $table->unsignedBigInteger('id_users');
+            $table->foreign('id_users')->references('id_users')->on('users');
             $table->softDeletes();
+            $table->timestamps();
         });
     }
 
