@@ -11,19 +11,19 @@
           <h5><b>Perfil:</b></h5>
           <hr>
           <p class="mb-2"><b>Nome Completo:</b></p>
-          <input type="hidden" name="id_cliente" value="{{ $cliente['id_cliente'] }}">
-          <input class="form-control" type="text" name="nomecompleto" value="{{ $cliente['nomecompleto'] }}">
+          <input type="hidden" name="id_users" value="{{ $users['id_users'] }}">
+          <input class="form-control" type="text" name="nomecompleto" value="{{ $users['nomecompleto'] }}">
           <p class="mb-2"><b>Email:</b></p>
-          {{ Session::get('cliente')->email }}
+          {{ Session::get('users')->email }}
           <p class="mb-2"><b>Telefone:</b></p>
-          <input class="form-control" type="text" name="telefone" value="{{ $cliente['telefone'] }}">
+          <input class="form-control" type="text" name="telefone" value="{{ $users['telefone'] }}">
           <p class="mb-2"><b>Endereço:</b></p>
-          <input class="form-control" type="text" name="endereco" value="{{ $cliente['endereco'] }}">
+          <input class="form-control" type="text" name="endereco" value="{{ $users['endereco'] }}">
           <p>Ex.: Avenida das Batatas, 321 Bairro: Centro - Timbó-SC</p>
           <p class="mb-2"><b>CPF:</b></p>
-          <input class="form-control" type="text" name="cpf" value="{{ $cliente['cpf'] }}">
+          <input class="form-control" type="text" name="cpf" value="{{ $users['cpf'] }}">
           <p class="mb-2"><b>Data de Nascimento:</b></p>
-          <input class="form-control" type="text" name="datanascimento" value="{{ $cliente['datanascimento'] }}">
+          <input class="form-control" type="text" name="datanascimento" value="{{ $users['datanascimento'] }}">
           <p class="mb-2"><b>Nova Senha:</b></p>
           <input class="form-control" type="password" name="novasenha" value="">
           <div class="form-group mt-4 wow fadeInUp">

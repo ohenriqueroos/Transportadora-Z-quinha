@@ -6,35 +6,37 @@ use Illuminate\Support\Str;
 
 use Illuminate\Http\Request;
 
-use App\Models\cliente;
+use App\Models\users;
 
 use App\Models\pedido;
+
+use App\Models\messages;
 
 use Illuminate\Support\Facades\Hash;
 
 class HomeController extends Controller
 {
     public function funcao (Request $req) {
-        $cliente = new cliente();
-        $cliente->fill($req->all());
-        $cliente['senha'] = Hash::make($cliente['senha']);
-        $cliente->save();
+        $users = new users();
+        $users->fill($req->all());
+        $users['senha'] = Hash::make($users['senha']);
+        $users->save();
         return redirect('logincadastro');    
     }
 
     public function novopedido (Request $req) {
         $req['rastreamento'] = Str::uuid();
-        $req['id_cliente'] = 1;
+        $req['id_users'] = 1;
         $pedido = new pedido();
         $pedido->fill($req->all());
-        $pedido['id_cliente'] = $req->session()->get('cliente')->id_cliente;
+        $pedido['id_users'] = $req->session()->get('users')->id_users;
         $pedido->save();
         return redirect('acompanharentrega');
     }
 
 
    public function listaPedidos (Request $req) {
-       $pedido = pedido::where('id_cliente', $req->session()->get('cliente')->id_cliente)->get();
+       $pedido = pedido::where('id_users', $req->session()->get('users')->id_users)->get();
        return view('acompanharentrega', compact('pedido'));
    }
 
@@ -44,7 +46,7 @@ class HomeController extends Controller
     }
 
     public function listaPedidosA (Request $req) {
-        $pedido = pedido::where('id_cliente', $req->session()->get('cliente')->id_cliente)->get();
+        $pedido = pedido::where('id_users', $req->session()->get('users')->id_users)->get();
         return view('admin', compact('pedido'));
         }
     
@@ -68,34 +70,34 @@ class HomeController extends Controller
     }
 
     public function loadCliente (Request $req) {
-        $cliente = cliente::where('id_cliente', $req->session()->get('cliente')->id_cliente)->first();
-        return view('perfil', compact('cliente'));
+        $users = cliente::where('id_users', $req->session()->get('users')->id_users)->first();
+        return view('perfil', compact('users'));
     }
 
     public function updateCliente (Request $req) {
-        $cliente = cliente::find($req['id_cliente']);
-        $cliente['nomecompleto'] = $req['nomecompleto'];
-        $cliente['telefone'] = $req['telefone'];
-        $cliente['endereco'] = $req['endereco'];
-        $cliente['cpf'] = $req['cpf'];
-        $cliente['datanascimento'] = $req['datanascimento'];
+        $users = users::find($req['id_users']);
+        $users['nomecompleto'] = $req['nomecompleto'];
+        $users['telefone'] = $req['telefone'];
+        $users['endereco'] = $req['endereco'];
+        $users['cpf'] = $req['cpf'];
+        $users['datanascimento'] = $req['datanascimento'];
         if (!is_null($req['novasenha'])) {
-            $cliente['senha'] = Hash::make($req['novasenha']);
+            $users['senha'] = Hash::make($req['novasenha']);
         }
-        $cliente->save();
-        $req->session()->put('cliente', $cliente);
+        $users->save();
+        $req->session()->put('users', $users);
         return redirect('perfil');
     }
 
     public function checkLogin (Request $req) {
-        $cliente = cliente::where('email', $req['email'])->first();
+        $users = users::where('email', $req['email'])->first();
         // return $req['senha'];
-        if(Hash::check($req['senha'], $cliente['senha'])){
-            $req->session()->put('cliente', $cliente);
+        if(Hash::check($req['senha'], $users['senha'])){
+            $req->session()->put('users', $users);
             return redirect('acompanharentrega');
         }
         return redirect('logincadastro');
-        // if ($cliente['senha'] == $req['senha']){
+        // if ($users['senha'] == $req['senha']){
         //     return redirect('acompanharentrega');
     }
 
@@ -105,7 +107,7 @@ class HomeController extends Controller
     }
 
     public function loadHome (Request $req) {
-        $cliente = cliente::get();
-        return view('home', compact('cliente'));
+        $users = users::get();
+        return view('home', compact('users'));
     }
 }

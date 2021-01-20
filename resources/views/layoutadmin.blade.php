@@ -34,7 +34,7 @@
     <img class="pl-5 mb-2" src="/img/zequinhalogohorizontalbranco.png" width="200px">
     <ul class="mr-5  navbar-nav px-3">
       <li class="nav-item dropdown active">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ Session::get('cliente')->nomecompleto }}</a>
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ Session::get('users')->nomecompleto }}</a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="logout">Sair</a>
         </div>

@@ -53,10 +53,10 @@
         <li class="nav-item">
           <a class="nav-link" href="/contato">Contato</a>
         </li>
-        @if (Session::has('cliente'))
+        @if (Session::has('users'))
         <ul class="navbar-nav ml-auto mt-3 mt-lg-0">
         <li class="nav-item dropdown active">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ Session::get('cliente')->nomecompleto }}</a>
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ Session::get('users')->nomecompleto }}</a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="perfil">Perfil</a>
             <a class="dropdown-item" href="logout">Sair</a>
@@ -64,7 +64,7 @@
         </li>
         @endif
       </ul>
-        @if (!Session::has('cliente'))
+        @if (!Session::has('users'))
           <div class="ml-auto my-2 my-lg-0">
             <a href="logincadastro" button class="btn btn-dark rounded-pill">Acessar</button></a>
           </div>

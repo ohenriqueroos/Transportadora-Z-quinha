@@ -2,9 +2,9 @@
 @section('pagina')
 
 <!--
-@foreach ($cliente as $val)
+@foreach ($users as $val)
   Nome: <b>{{ $val['nomecompleto'] }}</b><br>
-  Id: <b>{{ $val['id_cliente'] }}</b><br>
+  Id: <b>{{ $val['id_users'] }}</b><br>
 @endforeach -->
 
 <div class="page-hero-section bg-image hero-home-1" style="background-color: white">
