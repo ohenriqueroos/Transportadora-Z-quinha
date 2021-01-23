@@ -18,6 +18,7 @@ class HomeController extends Controller
 {
     public function funcao (Request $req) {
         $users = new users();
+        $users['tipo'] = 1; 
         $users->fill($req->all());
         $users['senha'] = Hash::make($users['senha']);
         $users->save();
@@ -70,7 +71,7 @@ class HomeController extends Controller
     }
 
     public function loadCliente (Request $req) {
-        $users = cliente::where('id_users', $req->session()->get('users')->id_users)->first();
+        $users = users::where('id_users', $req->session()->get('users')->id_users)->first();
         return view('perfil', compact('users'));
     }
 

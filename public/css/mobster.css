@@ -30,11 +30,11 @@ body {
 }
 
 a {
-  color: #526bf5;
+  color: black;
 }
 
 a:hover {
-  color: #7b50e6;
+  color: #F13057;
 }
 
 h1, h2, h3, h4, h5, h6,
@@ -2085,7 +2085,7 @@ hr {
   z-index: 99;
 }
 
-.navbar-nav .nav-link {
+.navbar-nav . link {
   font-weight: 500;
 }
 

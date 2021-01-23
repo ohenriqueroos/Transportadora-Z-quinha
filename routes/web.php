@@ -39,6 +39,10 @@ Route::get('/condicionais', function (){
     return view('condicionais');
 });
 
+Route::get('/adminclientes', function (){
+    return view('adminclientes');
+});
+
 
 Route::post('chamaFuncao', [HomeController::class, 'funcao']);
 Route::post('novoPedido', [HomeController::class, 'novopedido']);

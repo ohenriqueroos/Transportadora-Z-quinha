@@ -6,7 +6,7 @@
   <div class="container">
     <div class="pl-5 col-lg-12">
       <div class="row mb-5 justify-content-center">
-        <div class="card-page">
+        <div class="card-page pr-8">
           <h5><b>Entrega {{ $val['id_pedido'] }}:</b></h5>
           <hr>
           <p class="mb-2"><b>Código de Rastreamento:</b></p>

@@ -16,7 +16,7 @@ class blockLogin
      */
     public function handle(Request $request, Closure $next)
     {
-        if ($request->session()->has('cliente')) {
+        if ($request->session()->has('users')) {
             return redirect('/');
         } else {
             return $next($request);
