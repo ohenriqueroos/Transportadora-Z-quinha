@@ -39,11 +39,6 @@ Route::get('/condicionais', function (){
     return view('condicionais');
 });
 
-Route::get('/adminclientes', function (){
-    return view('adminclientes');
-});
-
-
 Route::post('chamaFuncao', [HomeController::class, 'funcao']);
 Route::post('novoPedido', [HomeController::class, 'novopedido']);
 Route::get('pedido/{id}', [HomeController::class, 'loadPedido']);
@@ -54,6 +49,7 @@ Route::get('/delete/{id}', [HomeController::class, 'delete']);
 Route::get('/', [HomeController::class, 'loadHome']);
 Route::get('admin', [HomeController::class, 'listaPedidosA']);
 Route::get('adminpedido/{id}', [HomeController::class, 'loadPedidoA']);
+Route::get('adminclientes', [HomeController::class, 'listaClients']);
 
 Route::middleware([checkLogin::class])->group(function () {
     Route::get('/fazerpedido', function () {
