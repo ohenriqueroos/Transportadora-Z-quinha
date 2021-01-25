@@ -4,9 +4,9 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\HomeController;
 
-use App\Http\Middleware\checkLogin;
-
-use App\Http\Middleware\blockLogin;
+use App\Http\Middleware\CheckLogin;
+use App\Http\Middleware\CheckAdminLogin;
+use App\Http\Middleware\BlockLogin;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,11 +47,8 @@ Route::post('checkLogin', [HomeController::class, 'checkLogin']);
 Route::get('logout', [HomeController::class, 'logout']);
 Route::get('/delete/{id}', [HomeController::class, 'delete']);
 Route::get('/', [HomeController::class, 'loadHome']);
-Route::get('admin', [HomeController::class, 'listaPedidosA']);
-Route::get('adminpedido/{id}', [HomeController::class, 'loadPedidoA']);
-Route::get('adminclientes', [HomeController::class, 'listaClients']);
 
-Route::middleware([checkLogin::class])->group(function () {
+Route::middleware([CheckLogin::class])->group(function () {
     Route::get('/fazerpedido', function () {
         return view('fazerpedido');
     });
@@ -63,7 +60,13 @@ Route::middleware([checkLogin::class])->group(function () {
     Route::post('perfil', [HomeController::class, 'updateCliente']);
 });
 
-Route::middleware([blockLogin::class])->group(function () {
+Route::middleware([CheckAdminLogin::class])->group(function () {
+    Route::get('admin', [HomeController::class, 'listaPedidosA']);
+    Route::get('adminpedido/{id}', [HomeController::class, 'loadPedidoA']);
+    Route::get('adminclientes', [HomeController::class, 'listaClients']);
+});
+
+Route::middleware([BlockLogin::class])->group(function () {
     Route::get('/logincadastro', function () {
         return view('logincadastro');
     });

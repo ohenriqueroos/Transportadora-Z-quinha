@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class checkLogin
+class CheckLogin
 {
     /**
      * Handle an incoming request.
@@ -16,10 +16,10 @@ class checkLogin
      */
     public function handle(Request $request, Closure $next)
     {
-        if ($request->session()->has('users')) {
+        if ($request->session()->has('users') && $request->session()->get('users')->tipo === 1) {
             return $next($request);
         } else {
-            return redirect('logincadastro');
+            return redirect('/');
         }
     }
 }

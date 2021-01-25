@@ -35,7 +35,6 @@ class HomeController extends Controller
         return redirect('acompanharentrega');
     }
 
-
    public function listaPedidos (Request $req) {
        $pedido = pedido::where('id_users', $req->session()->get('users')->id_users)->get();
        return view('acompanharentrega', compact('pedido'));
@@ -59,7 +58,7 @@ class HomeController extends Controller
     public function listaClients (Request $req) {
         $users = users::get();
         return view('adminclientes', compact('users'));
-        }
+    }
 
     public function updatePedido (Request $req) {
         $pedido = pedido::find($req['id_pedido']);
@@ -71,8 +70,8 @@ class HomeController extends Controller
     }
 
     public function delete ($id) {
-    $pedido = pedido::find($id)->delete();
-    return redirect('acompanharentrega');
+        $pedido = pedido::find($id)->delete();
+        return redirect('acompanharentrega');
     }
 
     public function loadCliente (Request $req) {
@@ -98,9 +97,10 @@ class HomeController extends Controller
     public function checkLogin (Request $req) {
         $users = users::where('email', $req['email'])->first();
         // return $req['senha'];
-        if(Hash::check($req['senha'], $users['senha'])){
+        if (Hash::check($req['senha'], $users['senha'])) {
             $req->session()->put('users', $users);
-            return redirect('acompanharentrega');
+            if ($users['tipo'] === 0) return redirect('admin');
+            else return redirect('acompanharentrega');
         }
         return redirect('logincadastro');
         // if ($users['senha'] == $req['senha']){
