@@ -62,6 +62,18 @@
           Clientes
           </a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/adminmessages">
+          <img src="/img/messages.svg" width="12%">
+          Mensagens
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/admincadastro">
+          <img src="/img/new.svg" width="12%">
+          Novo Funcionário
+          </a>
+        </li>
       </ul>
 </nav>
 

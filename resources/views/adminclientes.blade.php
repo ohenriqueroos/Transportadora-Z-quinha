@@ -11,10 +11,8 @@
                     <hr>
                     <p class="mb-2"><b>Nome Completo:</b></p>
                     <p class="mb-2">{{ $val['nomecompleto'] }}</p>
-                    <hr>
-                    <a href="" style="color: rgba(237, 32, 36)">
-                    Veja mais detalhes!
-                    </a>
+                    <p class="mb-2"><b>E-mail:</b></p>
+                    <p class="mb-2">{{ $val['email'] }}</p>
                 </div>
             </div>
         </div>

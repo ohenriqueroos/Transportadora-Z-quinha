@@ -214,21 +214,21 @@
       <div class="col-lg-5 py-3">
         <h1 class="wow fadeInUp">Tem alguma dúvida?</h1>
 
-        <form method="POST" class="mt-5">
+        <form method="POST" action="SendMessage" class="mt-5">
         @csrf    
           <div class="form-group wow fadeInUp">
             <label for="name" class="fw-medium fg-grey">Nome completo</label>
-            <input type="text" class="form-control" id="name">
+            <input type="text" class="form-control" name="namemessages">
           </div>
 
           <div class="form-group wow fadeInUp">
             <label for="email" class="fw-medium fg-grey">E-mail</label>
-            <input type="text" class="form-control" id="email">
+            <input type="text" class="form-control" name="emailmessages">
           </div>
 
           <div class="form-group wow fadeInUp">
             <label for="message" class="fw-medium fg-grey">Mensagem</label>
-            <textarea rows="6" class="form-control" id="message"></textarea>
+            <textarea rows="6" class="form-control" name="textmessages"></textarea>
           </div>
 
           <div class="form-group mt-4 wow fadeInUp">

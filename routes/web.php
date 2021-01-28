@@ -47,6 +47,7 @@ Route::post('checkLogin', [HomeController::class, 'checkLogin']);
 Route::get('logout', [HomeController::class, 'logout']);
 Route::get('/delete/{id}', [HomeController::class, 'delete']);
 Route::get('/', [HomeController::class, 'loadHome']);
+Route::post('SendMessage', [HomeController::class, 'SendMessage']);
 
 Route::middleware([CheckLogin::class])->group(function () {
     Route::get('/fazerpedido', function () {
@@ -64,6 +65,11 @@ Route::middleware([CheckAdminLogin::class])->group(function () {
     Route::get('admin', [HomeController::class, 'listaPedidosA']);
     Route::get('adminpedido/{id}', [HomeController::class, 'loadPedidoA']);
     Route::get('adminclientes', [HomeController::class, 'listaClients']);
+    Route::get('adminmessages', [HomeController::class, 'ListaMessages']);
+    Route::post('NewAdmin', [HomeController::class, 'NewAdmin']);
+    Route::get('/admincadastro', function () {
+        return view('admincadastro');
+    });
 });
 
 Route::middleware([BlockLogin::class])->group(function () {

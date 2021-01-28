@@ -2,10 +2,10 @@
 @section('admin')
 
 @foreach ($pedido as $val)
-<div class="page-section">
+<div class="page-section mr-0">
   <div class="container">
-    <div class="pl-5 col-lg-12">
-      <div class="row mb-5 justify-content-center">
+    <div class="row mb-5 justify-content-center">
+      <div class="pl-5 offset-1 col-sm col-md col-lg">
         <div class="card-page pr-8">
           <h5><b>Entrega {{ $val['id_pedido'] }}:</b></h5>
           <hr>

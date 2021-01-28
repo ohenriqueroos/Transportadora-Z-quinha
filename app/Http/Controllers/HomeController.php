@@ -116,4 +116,25 @@ class HomeController extends Controller
         $users = users::get();
         return view('home', compact('users'));
     }
+
+    public function SendMessage (Request $req) {
+        $messages = new messages();
+        $messages->fill($req->all());
+        $messages->save();
+        return redirect('/');
+    }
+
+    public function ListaMessages (Request $req) {
+        $messages = messages::get();
+        return view('adminmessages', compact('messages'));
+    }
+    
+    public function NewAdmin (Request $req) {
+        $users = new users();
+        $users['tipo'] = 0; 
+        $users->fill($req->all());
+        $users['senha'] = Hash::make($users['senha']);
+        $users->save();
+        return $users;    
+    }
 }
