@@ -16,7 +16,7 @@ class CheckAdminLogin
      */
     public function handle(Request $request, Closure $next)
     {
-        if ($request->session()->has('users') && $request->session()->get('users')->tipo === 0) {
+        if ($request->session()->has('users') && $request->session()->get('users')->tipo == 0) {
             return $next($request);
         } else {
             return redirect('/');

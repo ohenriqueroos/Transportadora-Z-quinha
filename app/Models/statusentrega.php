@@ -10,5 +10,5 @@ class statusentrega extends Model
     use HasFactory;
     protected $table = 'statusentrega';
     protected $primaryKey = 'id_statusentrega';
-    protected $fillable = ['datahorapostado', 'datahoraentrega', 'codigorastreio', 'id_pedido'];
+    protected $fillable = ['datahorapostado', 'datahoraentrega', 'codigorastreio', 'tipo', 'id_pedido'];
 }

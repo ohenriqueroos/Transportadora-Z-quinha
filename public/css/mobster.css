@@ -2148,6 +2148,11 @@ hr {
   padding-top: 100px;
 }
 
+.page-section-admin {
+  position: relative;
+  padding-top: 100px;
+}
+
 .page-section2 {
   position: relative;
   padding-top: 100px;
@@ -2884,5 +2889,17 @@ hr {
 @media (min-width: 576px) {
   .comment-list .children {
     padding: 20px 0 0 40px;
+  }
+}
+
+
+@media (min-width: 576px) {
+  .left-navbar{
+    width: 300px !important;
+    height: 100vh; /* vh = view height */
+    position: fixed;
+  }
+  .page-index{
+    margin-left: 250px !important;
   }
 }

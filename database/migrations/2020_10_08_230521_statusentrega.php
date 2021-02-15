@@ -21,6 +21,7 @@ class Statusentrega extends Migration
             $table->datetime('datahorapostado');
             $table->datetime('datahoraentrega');
             $table->string('codigorastreio');
+            $table->string('tipo');
         });
     }
 

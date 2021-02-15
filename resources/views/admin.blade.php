@@ -2,7 +2,7 @@
 @section('admin')
 
 @foreach ($pedido as $val)
-<div class="page-section mr-0">
+<div class="page-section-admin">
   <div class="container">
     <div class="row mb-5 justify-content-center">
       <div class="pl-5 offset-1 col-sm col-md col-lg">

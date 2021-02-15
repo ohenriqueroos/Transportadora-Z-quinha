@@ -35,6 +35,17 @@ class HomeController extends Controller
         return redirect('acompanharentrega');
     }
 
+    public function StatusEntrega (Request $req) {
+        $req['rastreamento'] = Str::uuid();
+        $req['id_users'] = 1;
+        $req['id_pedido'] = 1;
+        $pedido = new pedido();
+        $pedido->fill($req->all());
+        $pedido['id_users'] = $req->session()->get('users')->id_users;
+        $pedido->save();
+        return redirect('acompanharentrega');
+    }
+
    public function listaPedidos (Request $req) {
        $pedido = pedido::where('id_users', $req->session()->get('users')->id_users)->get();
        return view('acompanharentrega', compact('pedido'));
@@ -56,7 +67,7 @@ class HomeController extends Controller
     }
 
     public function listaClients (Request $req) {
-        $users = users::get();
+        $users = users::where('tipo', '=', 1)->get();
         return view('adminclientes', compact('users'));
     }
 
@@ -96,13 +107,14 @@ class HomeController extends Controller
 
     public function checkLogin (Request $req) {
         $users = users::where('email', $req['email'])->first();
-        // return $req['senha'];
+        // return $users;
         if (Hash::check($req['senha'], $users['senha'])) {
             $req->session()->put('users', $users);
-            if ($users['tipo'] === 0) return redirect('admin');
+            if ($users['tipo'] == 0) return redirect('admin');
             else return redirect('acompanharentrega');
         }
         return redirect('logincadastro');
+        
         // if ($users['senha'] == $req['senha']){
         //     return redirect('acompanharentrega');
     }
@@ -135,6 +147,6 @@ class HomeController extends Controller
         $users->fill($req->all());
         $users['senha'] = Hash::make($users['senha']);
         $users->save();
-        return $users;    
+        return redirect('/admin');    
     }
 }
