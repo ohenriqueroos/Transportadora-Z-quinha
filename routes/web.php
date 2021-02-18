@@ -59,6 +59,9 @@ Route::middleware([CheckLogin::class])->group(function () {
     Route::get('acompanharentrega', [HomeController::class, 'listaPedidos']);
     Route::get('/perfil', [HomeController::class, 'loadCliente']);
     Route::post('perfil', [HomeController::class, 'updateCliente']);
+    Route::post('novoPedido', [HomeController::class, 'novopedido']);
+    Route::get('pedido/{id}', [HomeController::class, 'loadPedido']);
+    Route::post('pedido', [HomeController::class, 'updatePedido']);
 });
 
 Route::middleware([CheckAdminLogin::class])->group(function () {
@@ -67,6 +70,7 @@ Route::middleware([CheckAdminLogin::class])->group(function () {
     Route::get('adminclientes', [HomeController::class, 'listaClients']);
     Route::get('adminmessages', [HomeController::class, 'ListaMessages']);
     Route::post('NewAdmin', [HomeController::class, 'NewAdmin']);
+    Route::post('adminpedido', [HomeController::class, 'StatusEntrega']);
     Route::get('/admincadastro', function () {
         return view('admincadastro');
     });

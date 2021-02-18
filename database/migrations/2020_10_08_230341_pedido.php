@@ -15,6 +15,7 @@ class Pedido extends Migration
     {
         Schema::create('pedido', function (Blueprint $table) {
             $table->bigIncrements('id_pedido');
+            $table->tinyInteger('status')->nullable();
             $table->string('nomedestinatario');
             $table->string('telefonedestinatario');
             $table->string('enderecodestinatario');

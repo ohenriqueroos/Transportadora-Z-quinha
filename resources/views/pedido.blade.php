@@ -11,6 +11,26 @@
           <hr>
           <form method="POST" action="/pedido">
           @csrf
+          <p class="mb-2"><b>Acompanhe a entrega do seu pedido:</b></p>
+          @if ($pedido['status'] == 0) 
+          <p class="mb-2">Aguardando veículo sair para coleta</p> 
+          @elseif ($pedido['status'] == 1) 
+          <p class="mb-2">Veículo saiu para coleta</p>
+          @elseif ($pedido['status'] == 2) 
+          <p class="mb-2">Coletado</p>
+          @elseif ($pedido['status'] == 3) 
+          <p class="mb-2">Remetente não localizado</p>
+          @elseif ($pedido['status'] == 4) 
+          <p class="mb-2">Pedido a Caminho da Central de Distribuição</p>
+          @elseif ($pedido['status'] == 5) 
+          <p class="mb-2">Pedido chegou na Central de Distribuição</p>
+          @elseif ($pedido['status'] == 6) 
+          <p class="mb-2">Pedido saiu para entrega</p>
+          @elseif ($pedido['status'] == 7) 
+          <p class="mb-2">Pedido Entregue</p>
+          @elseif ($pedido['status'] == 8) 
+          <p class="mb-2">Destinatário não localizado</p>
+          @endif
           <p class="mb-2"><b>Nome do destinatário:</b></p>
           <input type="hidden" name="id_pedido" value="{{ $pedido['id_pedido'] }}">
           <input class="form-control" type="text" name="nomedestinatario" value="{{$pedido['nomedestinatario']}}">

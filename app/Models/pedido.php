@@ -10,5 +10,5 @@ class pedido extends Model
     use HasFactory;
     protected $table = 'pedido';
     protected $primaryKey = 'id_pedido';
-    protected $fillable = ['nomedestinatario', 'telefonedestinatario', 'enderecodestinatario', 'rastreamento', 'id_users'];
+    protected $fillable = ['nomedestinatario', 'telefonedestinatario', 'enderecodestinatario', 'rastreamento', 'status', 'id_users'];
 }

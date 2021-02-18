@@ -36,14 +36,11 @@ class HomeController extends Controller
     }
 
     public function StatusEntrega (Request $req) {
-        $req['rastreamento'] = Str::uuid();
-        $req['id_users'] = 1;
-        $req['id_pedido'] = 1;
-        $pedido = new pedido();
-        $pedido->fill($req->all());
-        $pedido['id_users'] = $req->session()->get('users')->id_users;
+        $pedido = pedido::find($req['id_pedido']);
+        $pedido['status'] = $req['status'];
         $pedido->save();
-        return redirect('acompanharentrega');
+        return redirect('adminpedido/' . $pedido['rastreamento']);
+
     }
 
    public function listaPedidos (Request $req) {
@@ -67,7 +64,7 @@ class HomeController extends Controller
     }
 
     public function listaClients (Request $req) {
-        $users = users::where('tipo', '=', 1)->get();
+        $users = users::where('tipo', 1)->get();
         return view('adminclientes', compact('users'));
     }
 
